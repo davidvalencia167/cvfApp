@@ -1,65 +1,94 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
- */
+export const colors = {
+  background: "#121212",
+  surface: "#1A1A1A",
+  border: "#2B2B2B",
+  peachSoft: "#170D06",
+  muted: "#120C07",
+  sand: "#0C0603",
+  cacao: "#3E2015",
+  terracotta: "#F67D51",
+  terracottaLight: "#FFAA66",
+  congressOrange: "#E8704E",
+  gold: "#E8C163",
+  goldDeep: "#D4A236",
+  red: "#E62C2C",
+  text: "#F5EDE4",
+  textSecondary: "#B7A89B",
+  textOnButton: "#030101",
+  cream: "#FAF0E5",
+  sponsorBackground: "#F7F5F1",
+  sponsorText: "#1A1A1A",
+  sponsorSecondary: "#5A5550",
+  sponsorTertiary: "#A49C92",
+  sponsorBorder: "#D8D2C9",
+  success: "#9BCB8F",
+} as const;
 
-import '@/global.css';
+export const spacing = {
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 40,
+} as const;
 
-import { Platform } from 'react-native';
+export const radius = {
+  sm: 10,
+  md: 16,
+  lg: 24,
+  pill: 999,
+} as const;
+
+export const typography = {
+  display: 34,
+  title: 26,
+  section: 19,
+  body: 15,
+  caption: 12,
+  label: 11,
+} as const;
+
+export const shadows = {
+  card: {
+    shadowColor: "#000000",
+    shadowOpacity: 0.24,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 4,
+  },
+} as const;
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: colors.text,
+    textSecondary: colors.textSecondary,
+    background: colors.background,
+    backgroundElement: colors.surface,
+    backgroundSelected: colors.cacao,
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: colors.text,
+    textSecondary: colors.textSecondary,
+    background: colors.background,
+    backgroundElement: colors.surface,
+    backgroundSelected: colors.cacao,
   },
 } as const;
-
-export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
-
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
-  },
-});
 
 export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
+  half: spacing.xs / 2,
+  one: spacing.xs,
+  two: spacing.sm,
+  three: spacing.md,
+  four: spacing.lg,
+  five: spacing.xl,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
+export const MaxContentWidth = 680;
+
+export const Fonts = {
+  mono: "monospace",
+} as const;
+
+export type ThemeColor = keyof typeof Colors.light;
